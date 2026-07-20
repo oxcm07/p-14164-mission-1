@@ -40,6 +40,6 @@ public class WiseSayingService {
     }
 
     public long count() {
-        return wiseSayingRepository.count();
+        return wiseSayingRepository.qCount();
     }
 }

@@ -25,4 +25,14 @@ public record WiseSayingRepositoryImpl(JPAQueryFactory queryFactory) implements 
                 .selectFrom(wiseSaying)
                 .fetch();
     }
+
+    @Override
+    public long qCount() {
+        Long count = queryFactory
+                .select(wiseSaying.count())
+                .from(wiseSaying)
+                .fetchOne();
+
+        return count != null ? count : 0L;
+    }
 }

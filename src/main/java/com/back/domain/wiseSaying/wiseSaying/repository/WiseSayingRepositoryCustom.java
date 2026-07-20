@@ -9,4 +9,6 @@ public interface WiseSayingRepositoryCustom {
     Optional<WiseSaying> findQById(int id);
 
     List<WiseSaying> findQAll();
+
+    long qCount();
 }
