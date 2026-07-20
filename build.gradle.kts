@@ -34,6 +34,13 @@ dependencies {
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
     testAnnotationProcessor("org.projectlombok:lombok")
     implementation("org.commonmark:commonmark:0.28.0")
+    // QueryDSL JPA 라이브러리 본체
+    implementation("io.github.openfeign.querydsl:querydsl-jpa:7.4.0")
+    // Q-Class 생성을 위한 자바 APT 프로세서
+    annotationProcessor("io.github.openfeign.querydsl:querydsl-apt:7.4.0:jpa")
+    // 스프링 부트 환경에서 컴파일 시점에 JPA 스펙을 정상 인식하도록 돕는 의존성
+    annotationProcessor("jakarta.annotation:jakarta.annotation-api")
+    annotationProcessor("jakarta.persistence:jakarta.persistence-api")
 }
 
 tasks.withType<Test> {
