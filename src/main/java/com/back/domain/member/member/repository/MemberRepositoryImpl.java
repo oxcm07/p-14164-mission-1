@@ -43,13 +43,13 @@ public record MemberRepositoryImpl(JPAQueryFactory queryFactory) implements Memb
                 .selectFrom(member)
                 .where(searchCondition(kwType, kw));
 
-        for (Sort.Order order : pageable.getSort()) {
+        pageable.getSort().forEach(order -> {
             switch (order.getProperty()) {
                 case "id" -> query.orderBy(order.isAscending() ? member.id.asc() : member.id.desc());
                 case "username" -> query.orderBy(order.isAscending() ? member.username.asc() : member.username.desc());
                 case "nickname" -> query.orderBy(order.isAscending() ? member.nickname.asc() : member.nickname.desc());
             }
-        }
+        });
 
         List<Member> results = query
                 .offset(pageable.getOffset())
