@@ -13,7 +13,7 @@ import java.util.Optional;
 public class WiseSayingService {
     private final WiseSayingRepository wiseSayingRepository;
 
-    public Optional<WiseSaying> findById(Long id) {
+    public Optional<WiseSaying> findById(int id) {
         return wiseSayingRepository.findQById(id);
     }
 
@@ -26,7 +26,7 @@ public class WiseSayingService {
     }
 
     public List<WiseSaying> findAll() {
-        return wiseSayingRepository.findAll();
+        return wiseSayingRepository.findQAll();
     }
 
     public void modify(WiseSaying wiseSaying, String content, String author) {
