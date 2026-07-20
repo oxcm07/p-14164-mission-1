@@ -7,12 +7,7 @@ import java.util.Optional;
 
 import static com.back.domain.member.member.entity.QMember.member;
 
-public class MemberRepositoryImpl implements MemberRepositoryCustom{
-    private final JPAQueryFactory queryFactory;
-
-    public MemberRepositoryImpl(JPAQueryFactory queryFactory) {
-        this.queryFactory = queryFactory;
-    }
+public record MemberRepositoryImpl(JPAQueryFactory queryFactory) implements MemberRepositoryCustom {
 
     @Override
     public long qCount() {
