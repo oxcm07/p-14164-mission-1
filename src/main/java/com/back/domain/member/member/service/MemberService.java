@@ -3,6 +3,8 @@ package com.back.domain.member.member.service;
 import com.back.domain.member.member.entity.Member;
 import com.back.domain.member.member.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -24,5 +26,9 @@ public class MemberService {
 
     public Optional<Member> findByUsername(String username) {
         return memberRepository.findQByUsername(username);
+    }
+
+    public Page<Member> findPaged(String kwType, String kw, Pageable pageable) {
+        return memberRepository.findQPaged(kwType, kw, pageable);
     }
 }
